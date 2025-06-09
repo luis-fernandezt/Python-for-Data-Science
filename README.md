@@ -104,3 +104,98 @@ Learning Python from Jupyter Notebook and Visual Studio Code.
 | type one error        | The error of rejecting a true null hypothesis (a false positive), denoted by alpha (α), often set at a significance level of 0.05                                                        |
 | type two error        | The error of failing to reject a false null hypothesis (a false negative), denoted by beta (β), indicating a lack of power in the test                                                   |
 
+## 4 Visual Studio Code .py
+
+## import necessary Python libraries
+import math
+/
+import os
+from os import path
+/
+import datetime
+from datetime import date, time, timedelta
+import time
+/
+import shutil
+from shutil import make_archive
+from zipfile import ZipFile
+
+### Basic Commands 
+#### 1 hello world!, loops and functions 
+
+*Basic data types in Python: Numbers, Strings, Booleans, Sequences, Dictionaries.*
+*ERROR: variables of different types cannot be combined*
+
+- mylist = [0, 1, "two", 3.2, False]
+- mydict = {"one" : 1, "two" : 2}
+
+- *print*(mylist) 
+- *print*(mylist[2]) # to access a member of a sequence type, use []
+- *print*(mylist[1:4:2]) # use slices to get parts of a sequence
+- *print*(mylist[::-1]) # you can use slices to reverse a sequence
+- *print*(mydict["two"]) # dictionaries are accessed via keys
+
+- *del* mylist
+- *del* mydict
+- math.sqrt()
+- math.pi
+
+- datetime.datetime.now()
+
+* Define a basic function*
+
+def func1():
+    print("I am a function")
+
+def main():
+    print("hello world!")
+if __name__ == "__main__":
+    main()
+
+- conditional flow uses *if*, *elif*, *else*
+- the match-*case* construct can be used for multiple comparisons
+
+*loop*
+- define a for loop
+
+    for x in range(1,10):
+        print (x)
+
+- define a while loop
+
+    while (x < 5):
+        print(x)
+        x = x + 1
+
+- enumerate() #index the days
+
+    days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+    for i, d in enumerate(days):
+        print (i, d)
+
+#### 2 Files 
+- file = open("file.txt","w+") #  writing and create it if it doesn't exist
+- file = open("file.txt","a+") # appending text to the end
+- file = open("file.txt","r") # read the contents
+
+- * write ten new lines of data*
+for i in range(10):   
+      file.write("This is new line\n") 
+
+- file.close() # close the file when done
+- file.readlines() # reads the entire contents of a file line by line into an array
+
+- path.exists("file.txt")
+- path.isfile("file.txt")
+- os.rename("file.txt", "newfile.txt")
+
+#### 3 dates and times
+
+#### 4 Internet data
+
+
+
+
+### webs
+
+[https://www.kaggle.com/](https://www.kaggle.com/)

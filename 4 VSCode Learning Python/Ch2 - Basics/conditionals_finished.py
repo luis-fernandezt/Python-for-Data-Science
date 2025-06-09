@@ -23,7 +23,7 @@ def main():
 
     # new in Python 3.10
     # the match-case construct can be used for multiple comparisons
-    value = "one"
+    value = "three"
     match value:
         case "one":
             result = 1

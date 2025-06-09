@@ -3,6 +3,15 @@
 # LinkedIn Learning Python course by Joe Marini
 #
 
+mylist = [0, 1, "two", 3.2, False]
+print(mylist) 
+print(mylist[2]) # to access a member of a sequence type, use []
+print(mylist[1:4:2]) # use slices to get parts of a sequence
+print(mylist[::-1]) # you can use slices to reverse a sequence
+print(mylist["two"]) # dictionaries are accessed via keys
+del mylist
+
+
 
 # Basic data types in Python: Numbers, Strings, Booleans, Sequences, Dictionaries
 myint = 5
@@ -42,7 +51,7 @@ print ("string type " + str(123))
 
 # Global vs. local variables in functions
 def someFunction():
-    #global mystr
+    global mystr
     mystr = "def"
     print (mystr)
 
