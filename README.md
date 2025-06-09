@@ -77,10 +77,6 @@ Learning Python from Jupyter Notebook and Visual Studio Code.
 - model.summary()
 - model.resid
 
-### webs
-
-[# https://www.kaggle.com/](# https://www.kaggle.com/)
-
 ## 2 Statistic Basic
 
 | **Term**           | **Definition**                                                                          |
@@ -108,14 +104,14 @@ Learning Python from Jupyter Notebook and Visual Studio Code.
 
 ## import necessary Python libraries
 import math
-/
+
 import os
 from os import path
-/
+
 import datetime
 from datetime import date, time, timedelta
 import time
-/
+
 import shutil
 from shutil import make_archive
 from zipfile import ZipFile
@@ -123,26 +119,26 @@ from zipfile import ZipFile
 ### Basic Commands 
 #### 1 hello world!, loops and functions 
 
-*Basic data types in Python: Numbers, Strings, Booleans, Sequences, Dictionaries.*
-*ERROR: variables of different types cannot be combined*
+**Basic data types in Python: Numbers, Strings, Booleans, Sequences, Dictionaries.**
+**ERROR: variables of different types cannot be combined**
 
 - mylist = [0, 1, "two", 3.2, False]
 - mydict = {"one" : 1, "two" : 2}
 
-- *print*(mylist) 
-- *print*(mylist[2]) # to access a member of a sequence type, use []
-- *print*(mylist[1:4:2]) # use slices to get parts of a sequence
-- *print*(mylist[::-1]) # you can use slices to reverse a sequence
-- *print*(mydict["two"]) # dictionaries are accessed via keys
+- **print**(mylist) 
+- **print**(mylist[2]) # to access a member of a sequence type, use []
+- **print**(mylist[1:4:2]) # use slices to get parts of a sequence
+- **print**(mylist[::-1]) # you can use slices to reverse a sequence
+- **print**(mydict["two"]) # dictionaries are accessed via keys
 
-- *del* mylist
-- *del* mydict
+- **del** mylist
+- **del** mydict
 - math.sqrt()
 - math.pi
 
 - datetime.datetime.now()
 
-* Define a basic function*
+**Define a basic function**
 
 def func1():
     print("I am a function")
@@ -152,10 +148,10 @@ def main():
 if __name__ == "__main__":
     main()
 
-- conditional flow uses *if*, *elif*, *else*
+- conditional flow uses **if**, **elif**, **else**
 - the match-*case* construct can be used for multiple comparisons
 
-*loop*
+**loop**
 - define a for loop
 
     for x in range(1,10):
@@ -178,7 +174,7 @@ if __name__ == "__main__":
 - file = open("file.txt","a+") # appending text to the end
 - file = open("file.txt","r") # read the contents
 
-- * write ten new lines of data*
+- **write ten new lines of data**
 for i in range(10):   
       file.write("This is new line\n") 
 
