@@ -41,3 +41,9 @@ if afd < today:
 time_to_afd = afd - today
 print ("It's just", time_to_afd.days, "days until next April Fools' Day!")
 
+# How many days to my next birthday?
+my_birthday = date(today.year, 6, 21)  # set my birthday date
+if my_birthday < today:
+    my_birthday = my_birthday.replace(year=today.year + 1)  # if it has passed, get next year's date
+time_to_birthday = my_birthday - today
+print ("It's just", time_to_birthday.days, "days until my next birthday!")

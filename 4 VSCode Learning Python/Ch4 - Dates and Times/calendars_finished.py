@@ -5,11 +5,18 @@
 
 
 import calendar
+import datetime
 
 # create a plain text calendar
 c = calendar.TextCalendar(calendar.SUNDAY)
 str = c.formatmonth(2022, 1, 0, 0)
 print (str)
+
+#Create a plain text calendar for the whole year
+year = datetime.datetime.now().year
+cal = calendar.TextCalendar(calendar.SUNDAY)
+for m in range(1,13):
+    print(cal.formatmonth(year, m, 0, 0))
 
 # create an HTML formatted calendar
 hc = calendar.HTMLCalendar(calendar.SUNDAY)

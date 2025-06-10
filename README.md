@@ -101,8 +101,9 @@ Learning Python from Jupyter Notebook and Visual Studio Code.
 | type two error        | The error of failing to reject a false null hypothesis (a false negative), denoted by beta (β), indicating a lack of power in the test                                                   |
 
 ## 4 Visual Studio Code .py
+### 4.1 hello world!, loops and functions 
 
-## import necessary Python libraries
+**import necessary Python libraries**
 import math
 
 import os
@@ -116,8 +117,6 @@ import shutil
 from shutil import make_archive
 from zipfile import ZipFile
 
-### Basic Commands 
-#### 1 hello world!, loops and functions 
 
 **Basic data types in Python: Numbers, Strings, Booleans, Sequences, Dictionaries.**
 **ERROR: variables of different types cannot be combined**
@@ -169,7 +168,7 @@ if __name__ == "__main__":
     for i, d in enumerate(days):
         print (i, d)
 
-#### 2 Files 
+### 4.2 Files 
 - file = open("file.txt","w+") #  writing and create it if it doesn't exist
 - file = open("file.txt","a+") # appending text to the end
 - file = open("file.txt","r") # read the contents
@@ -185,13 +184,91 @@ for i in range(10):
 - path.isfile("file.txt")
 - os.rename("file.txt", "newfile.txt")
 
-#### 3 dates and times
+### 4.3 Dates and Times
 
-#### 4 Internet data
+**import necessary Python libraries**
+
+- from datetime import date
+- from datetime import time
+- from datetime import datetime
+
+- from datetime import datetime
+
+- from datetime import date
+- from datetime import time
+- from datetime import datetime
+- from datetime import timedelta
+
+- import calendar
+
+**Commands**
+
+- date.today() or datetime.date(datetime.now())
+- datetime.now()
+- datetime.time(datetime.now()) #current time
+- today.day() # date's individual components
+- today.month() # date's individual components
+- today.year() # date's individual components
+- today.weekday() # date's individual components
+
+**Date Formatting**
+%y/%Y - Year, %a/%A - weekday, %b/%B - month, %d - day of month
+%c - locale's date and time, %x - locale's date, %X - locale's time
+
+**Time Formatting**
+%I/%H - 12/24 Hour, %M - minute, %S - second, %p - locale's AM/PM
+
+- print (now.strftime("%Y-%m-%d")) # Year-Month-Day
+- strftime()
+
+[https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior](https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior)
+
+- timedelta()
+- datetime.now() + str(now + timedelta(weeks=2, days=365))
+- datetime.now() - timedelta(weeks=1)
+- datatime.replace() # use the replace() function to get the date for next year
+
+**How many days to my next birthday?**
+my_birthday = date(today.year, 6, 21)  # set my birthday date  
+if my_birthday < today:  
+    my_birthday = my_birthday.replace(year=today.year + 1)  # if it has passed, get next year's date  
+time_to_birthday = my_birthday - today  
+print ("It's just", time_to_birthday.days, "days until my next birthday!")  
+
+**calendars**
+- calendar.TextCalendar(calendar.SUNDAY)
+- c.formatmonth(2022, 1, 0, 0)
+
+- calendar.HTMLCalendar(calendar.SUNDAY)
+- html.formatmonth(2022, 1)
+[https://html.onlineviewer.net/](https://html.onlineviewer.net/)
+
+- c.itermonthdays() # count each days like numbers
+- calendar.month_name # names of  months
+- calendar.day_name # names of days
+- calendar.monthcalendar(theyear, themonth)
+
+### 4.4 Internet data .geojson
+- import urllib.request # instead of urllib2 like in Python 2.7
+- import json
+- from html.parser import HTMLParser
+- import xml.dom.minidom
 
 
+- urllib.request.urlopen("http://www.google.com")
+- print ("result code: ", webUrl.getcode())
+- webUrl.getcode()
+- webUrl.read()
 
 
-### webs
+- json.loads(data)
+- print("**%2.1f**"...)
+- getpos() # returns a tuple indication line and character
+
+
+-[https://docs.python.org/es/3/library/json.html](https://docs.python.org/es/3/library/json.html)
+-[https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
+
+## webs
 
 [https://www.kaggle.com/](https://www.kaggle.com/)
