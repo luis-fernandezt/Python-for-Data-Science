@@ -1,5 +1,5 @@
 README FILE FOR DAILY GLOBAL HISTORICAL CLIMATOLOGY NETWORK (GHCN-DAILY) 
-Version 3.26
+Version 3.32
 
 --------------------------------------------------------------------------------
 How to cite:
@@ -14,7 +14,7 @@ of the Global Historical Climatology Network-Daily Database.  Journal of Atmosph
 and Oceanic Technology, 29, 897-910, doi:10.1175/JTECH-D-11-00103.1.
 
 To acknowledge the specific version of the dataset used, please cite:
-Menne, M.J., I. Durre, B. Korzeniewski, S. McNeal, K. Thomas, X. Yin, S. Anthony, R. Ray, 
+Menne, M.J., I. Durre, B. Korzeniewski, S. McNeill, K. Thomas, X. Yin, S. Anthony, R. Ray, 
 R.S. Vose, B.E.Gleason, and T.G. Houston, 2012: Global Historical Climatology Network - 
 Daily (GHCN-Daily), Version 3. [indicate subset used following decimal, 
 e.g. Version 3.12]. 
@@ -62,6 +62,9 @@ by_year:              Directory with GHCN Daily files parsed into yearly
 		      /by_year/readme.txt and 
 		      /by_year/ghcn-daily-by_year-format.rtf 
 		      files for further details
+by_station:           Directory of GHCN daily station data in period of record
+                      comma separate (csv) files.  See readme-by_station.txt
+                      for additional details
 grid:	              Directory with the GHCN-Daily gridded dataset known 
                       as HadGHCND
 papers:		      Directory with pdf versions of journal articles relevant 
@@ -159,6 +162,10 @@ ELEMENT    is the element type.   There are five core elements as well as a numb
 	          ceilometer data (percent)
 	   ACSH = Average cloudiness sunrise to sunset from manual 
 	          observations (percent)
+           ADPT = Average Dew Point Temperature for the day (tenths of degrees C)
+           ASLP = Average Sea Level Pressure for the day (hPa * 10)
+           ASTP = Average Station Level Pressure for the day (hPa * 10)
+           AWBT = Average Wet Bulb Temperature for the day (tenths of degrees C)
            AWDR = Average daily wind direction (degrees)
 	   AWND = Average daily wind speed (tenths of meters per second)
 	   DAEV = Number of days included in the multiday evaporation
@@ -197,6 +204,9 @@ ELEMENT    is the element type.   There are five core elements as well as a numb
 	         (tenths of degrees C)
 	   PGTM = Peak gust time (hours and minutes, i.e., HHMM)
 	   PSUN = Daily percent of possible sunshine (percent)
+           RHAV = Average relative humidity for the day (percent)
+           RHMN = Minimum relative humidity for the day (percent)
+           RHMX = Maximum relative humidity for the day (percent)
 	   SN*# = Minimum soil temperature (tenths of degrees C)
 	          where * corresponds to a code
 	          for ground cover and # corresponds to a code for soil 
@@ -225,11 +235,19 @@ ELEMENT    is the element type.   There are five core elements as well as a numb
 	   SX*# = Maximum soil temperature (tenths of degrees C) 
 	          where * corresponds to a code for ground cover 
 		  and # corresponds to a code for soil depth. 
-		  See SN*# for ground cover and depth codes. 
-           TAVG = Average temperature (tenths of degrees C)
+		  See SN*# for ground cover and depth codes.
+           TAXN = Average daily temperature computed as 
+                  (TMAX+TMIN)/2.0 (tenths of degrees C) 
+           TAVG = Average daily temperature (tenths of degrees C)
 	          [Note that TAVG from source 'S' corresponds
-		   to an average for the period ending at
-		   2400 UTC rather than local midnight]
+		   to an average of hourly readings for the period
+		   ending at 2400 UTC rather than local midnight or other
+                   Local Standard Time according to a specific 
+                   Met Service's protocol]
+                  [For sources other than 'S' TAVG is computed in a 
+                   variety of ways including
+                   traditional fixed hours of the day whereas TAXN
+                  is solely computed as (TMAX+TMIN)/2.0]
            THIC = Thickness of ice on water (tenths of mm)	
  	   TOBS = Temperature at the time of observation (tenths of degrees C)
 	   TSUN = Daily total sunshine (minutes)
@@ -341,6 +359,9 @@ SFLAG1     is the source flag for the first day of the month.  There are
 	   D     = Short time delay US National Weather Service CF6 daily 
 	           summaries provided by the High Plains Regional Climate
 		   Center
+           d     = Short time delay US National Weather Service Daily
+                   Summary Message (DSMs) provided by the High Plains 
+                   Regional Climate Center
 	   E     = European Climate Assessment and Dataset (Klein Tank 
 	           et al., 2002)	   
            F     = U.S. Fort data 
@@ -352,7 +373,8 @@ SFLAG1     is the source flag for the first day of the month.  There are
            K     = U.S. Cooperative Summary of the Day data digitized from
 	           paper observer forms (from 2011 to present)
            M     = Monthly METAR Extract (additional ASOS data)
-	   m     = Data from the Mexican National Water Commission (Comision
+	   f     = Data provided courtesy of the Fiji Met Service
+           m     = Data from the Mexican National Water Commission (Comision
 	           National del Agua -- CONAGUA)
 	   N     = Community Collaborative Rain, Hail,and Snow (CoCoRaHS)
 	   Q     = Data from several African countries that had been 
@@ -385,7 +407,7 @@ SFLAG1     is the source flag for the first day of the month.  There are
 	   When data are available for the same time from more than one source,
 	   the highest priority source is chosen according to the following
 	   priority order (from highest to lowest):
-	   Z,R,D,0,6,C,X,W,K,7,F,B,M,m,r,E,z,u,b,s,a,G,Q,I,A,N,T,U,H,S
+	   Z,R,D,0,6,C,X,W,K,7,F,B,M,f,m,r,E,z,u,b,s,a,G,Q,I,A,N,T,U,H,S
 	   
 	   
 VALUE2     is the value on the second day of the month
@@ -450,6 +472,10 @@ ID         is the station identification code.  Note that the first two
 	       characters of the GHCN-Daily ID)
 	   N = Identification number used in data supplied by a 
 	       National Meteorological or Hydrological Center
+           P = "Pre-Coop" (an internal identifier assigned by NCEI for station
+               records collected prior to the establishment of the U.S. Weather
+               Bureau and their management of the U.S. Cooperative (Coop) 
+               Observer Program
 	   R = U.S. Interagency Remote Automatic Weather Station (RAWS)
 	       identifier
 	   S = U.S. Natural Resources Conservation Service SNOwpack
@@ -499,7 +525,7 @@ V. FORMAT OF "ghcnd-countries.txt"
 Variable   Columns   Type
 ------------------------------
 CODE          1-2    Character
-NAME         4-50    Character
+NAME          4-64   Character
 ------------------------------
 
 These variables have the following definitions:
