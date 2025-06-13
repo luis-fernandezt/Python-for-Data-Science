@@ -1,8 +1,6 @@
 
 # Python for Data Science
 
-<img src="https://raw.githubusercontent.com/luis-fernandezt/Python-for-Data-Science/refs/heads/main/5%20An%C3%A1lisis%20de%20datos%20de%20Python/Ex_Files_Python_Data_Analysis/chapter4/pp.show().JPG" width="216" height="260">
-
 Resumen de apuntes de Python para ciencia de datos utilizando Jupyter Notebook y Visual Studio Code.
 
 ---
@@ -136,6 +134,7 @@ plt.show()  # muestra el gráfico
 pp.imshow() # muestra una imagen
 pp.show() # muestra imagen
 ```
+<img src="https://raw.githubusercontent.com/luis-fernandezt/Python-for-Data-Science/refs/heads/main/5%20An%C3%A1lisis%20de%20datos%20de%20Python/Ex_Files_Python_Data_Analysis/chapter4/pp.show().JPG" width="216" height="260">
 
 ### 📈 Modelado
 
@@ -194,28 +193,57 @@ else:
 - https://html.onlineviewer.net/
 
 ---
+## 📘 Glosario de Fórmulas y Conceptos
 
-## 📚 Glosario
+### Media (Promedio)
+$$
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i \quad \text{Promedio de una muestra de } n \text{ observaciones } x_i
+$$
 
-| **Término / Fórmula**            | **Definición**                                                                 |
-|----------------------------------|--------------------------------------------------------------------------------|
-| `Media:` \( \mu = \frac{1}{n} \sum x_i \)     | Promedio aritmético de un conjunto de datos.                               |
-| `Varianza:` \( \sigma^2 = \frac{1}{n} \sum (x_i - \mu)^2 \) | Mide la dispersión de los datos.                    |
-| `Desviación estándar:` \( \sigma = \sqrt{\sigma^2} \)      | Raíz cuadrada de la varianza.                          |
-| `Error estándar:` \( SE = \frac{\sigma}{\sqrt{n}} \)       | Precisión de la media muestral.                         |
-| `Z-score:` \( z = \frac{x - \mu}{\sigma} \)   | Número de desviaciones estándar que un dato se aleja de la media.          |
-| `IC 95%:` \( \bar{x} \pm 1.96 \cdot SE \)      | Intervalo de confianza para la media con 95% de seguridad.                 |
-| `Regresión lineal:` \( y = \beta_0 + \beta_1 x + \epsilon \) | Relación lineal entre variable independiente y dependiente.              |
-| `Correlación:` \( r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \sum(y_i - \bar{y})^2}} \) | Asociación entre dos variables. |
-| `linear regression:`              | \( Y = \beta_0 + \beta_1 X + \epsilon \) → modelo de relación lineal     |
-| `R² (R-squared):`                 | Proporción de varianza explicada por el modelo                                |
-| `central limit theorem:`          | La media muestral se distribuye normal si n es suficientemente grande         |
-| `type I error (α):`               | Rechazar la hipótesis nula cuando es verdadera (falso positivo)               |
-| `type II error (β):`              | No rechazar la hipótesis nula cuando es falsa (falso negativo)                |
-| `p-value:`                        | Probabilidad de obtener un resultado igual o más extremo, dado H₀ verdadera   |
-| `one-tailed test:`                | Prueba estadística con hipótesis direccional (mayor o menor)                  |
-| `two-tailed test:`                | Prueba estadística donde interesa desviación en ambas direcciones             |
-| `hypothesis:`                     | Suposición que puede ser probada con datos                                    |
+---
+
+### Varianza
+$$
+s^2 = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \quad \text{Varianza muestral: mide la dispersión respecto a la media}
+$$
+
+---
+
+### Desviación estándar
+$$
+s = \sqrt{s^2} = \sqrt{\frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})^2} \quad \text{Raíz cuadrada de la varianza}
+$$
+
+---
+
+### Z-Score (Puntaje estándar)
+$$
+z_i = \frac{x_i - \bar{x}}{s} \quad \text{Cantidad de desviaciones estándar que } x_i \text{ está por sobre o bajo la media}
+$$
+
+---
+
+### Error estándar de la media
+$$
+SE = \frac{s}{\sqrt{n}} \quad \text{Estimación del error en la media muestral}
+$$
+
+---
+
+### Intervalo de confianza (95%)
+$$
+IC = \bar{x} \pm 1.96 \cdot \frac{s}{\sqrt{n}} \quad \text{Intervalo de confianza para la media con 95\% de certeza}
+$$
+
+---
+
+### Regresión lineal simple
+$$
+y = \beta_0 + \beta_1 x + \epsilon \quad \text{Modelo lineal con intercepto } \beta_0, \text{ pendiente } \beta_1 \text{ y error } \epsilon
+$$
+
+
+---
 
 
 **Autor:**  
