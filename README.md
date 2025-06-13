@@ -198,29 +198,21 @@ else:
 - Seaborn Documentation: https://seaborn.pydata.org/
 - Statsmodels Documentation: https://www.statsmodels.org/
 
-## 📚 Glosario
 
+## 📝 Glosario de Términos y Fórmulas
 
-| **Term**           | **Definition**                                                                          |
-|--------------------|-----------------------------------------------------------------------------------------|
-| mean               | The sum of all the values in a data set divided by the number of values in the data set |
-| median             | The middle value, in position, of an ordered data set                                   |
-| mode               | The most frequently occurring value in a data set                                       |
-| range              | The largest value minus the smallest value in a data set                                |
-| standard deviation | A measure of variance in a data set                                                     |
-
-
-
-| **Term**              | **Definition**                                                                                                                                                                           |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| central limit theorem | A statistical theory stating that the distribution of sample means approaches a normal distribution as the sample size becomes larger, regardless of the population’s distribution       |
-| confidence intervals  | A range of values derived from sample statistics that is likely to contain the value of an unknown population parameter, expressed at a specified confidence level (e.g., 95%)           |
-| hypothesis            | A proposed explanation or prediction that can be tested through study and experimentation, often formulated as a null hypothesis (no effect) and an alternative hypothesis (some effect) |
-| one-tailed test       | A type of hypothesis test where the area of interest is only in one tail of the distribution, used when testing for the possibility of the relationship in one direction                 |
-| standard error        | The standard deviation of the sampling distribution of a statistic, typically the mean, indicating the precision of the sample mean estimate of the population mean                      |
-| two-tailed test       | A type of hypothesis test where the areas of interest are in both tails of the distribution, used when testing for the possibility of the relationship in both directions                |
-| type one error        | The error of rejecting a true null hypothesis (a false positive), denoted by alpha (α), often set at a significance level of 0.05                                                        |
-| type two error        | The error of failing to reject a false null hypothesis (a false negative), denoted by beta (β), indicating a lack of power in the test                                                   |
-
-
+| **Término**                            | **Definición**                                                                                              |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Media (μ)                              | μ = (1/n) ∑ᵢ xᵢ  # promedio de todos los valores.                                                             |
+| Varianza (σ²)                          | σ² = (1/n) ∑ᵢ (xᵢ - μ)²  # medida de dispersión de los valores respecto a la media.                          |
+| Desviación estándar (σ)                | σ = √[σ²]  # raíz cuadrada de la varianza.                                                                  |
+| Z-score                                | z = (x - μ) / σ  # cuántas desviaciones estándar se aleja el valor x de la media.                           |
+| Percentil                              | Valor por debajo del cual cae un p% de las observaciones.                                                   |
+| Intervalo de confianza (95%)           | IC = x̄ ± 1.96 * (σ / √n)  # rango donde se espera que esté la media poblacional con 95% de confianza.      |
+| Regresión lineal (OLS)                 | ŷ = β₀ + β₁ x  # modelo de regresión donde ŷ es el valor predicho.                                         |
+| Error estándar de β₁                   | SE(β₁) = σ / √(∑ (xᵢ - x̄)²)  # precisión de la estimación de la pendiente.                                  |
+| Coeficiente de correlación (r)         | r = Cov(X,Y) / (σ_X σ_Y)  # fuerza y dirección de la relación lineal entre X y Y.                           |
+| Coeficiente de determinación (R²)      | R² = 1 - SSE/SST  # proporción de varianza de Y explicada por el modelo.                                    |
+| train_test_split                       | Función de scikit-learn para separar datos en conjuntos de entrenamiento y prueba.                          |
+| KNeighborsClassifier                   | Algoritmo de clasificación que asigna la clase según la mayoría de los k vecinos más cercanos.               |
 
