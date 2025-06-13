@@ -1,5 +1,5 @@
 
-# 🐍 Librerías y Comandos en Python para Ciencia de Datos
+# 🐍 Python para Ciencia de Datos
 
 **Resumen de apuntes de Python para ciencia de datos utilizando Jupyter Notebook y Visual Studio Code.**
 
