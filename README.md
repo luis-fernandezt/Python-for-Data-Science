@@ -1,6 +1,8 @@
 
 # Python for Data Science
 
+<img src="https://raw.githubusercontent.com/luis-fernandezt/Python-for-Data-Science/refs/heads/main/5%20An%C3%A1lisis%20de%20datos%20de%20Python/Ex_Files_Python_Data_Analysis/chapter4/pp.show().JPG" width="216" height="260">
+
 Resumen de apuntes de Python para ciencia de datos utilizando Jupyter Notebook y Visual Studio Code.
 
 ---
@@ -15,21 +17,25 @@ pip install pandas matplotlib seaborn numpy statsmodels scikit-learn dataclasses
 
 ### Librerías importadas:
 
-- **pandas** → `import pandas as pd`
-- **numpy** → `import numpy as np`
-- **matplotlib** → `import matplotlib.pyplot as plt` o `import matplotlib.pyplot as pp`
-- **seaborn** → `import seaborn as sns`
-- **statsmodels** → `import statsmodels.api as sm` y `from statsmodels.formula.api import ols`
-- **scikit-learn** → `from sklearn.model_selection import train_test_split`, `from sklearn.neighbors import KNeighborsClassifier`
-- **datetime** → `from datetime import date, time, datetime, timedelta`
-- **math** → `import math`
-- **os / path** → `import os`, `from os import path`
-- **shutil / zipfile** → `import shutil`, `from shutil import make_archive`, `from zipfile import ZipFile`
-- **calendar** → `import calendar`
-- **json / urllib** → `import json`, `import urllib.request`
-- **collections** → `import collections`, `@dataclass`, `namedtuple`
-- **itertools** → `import itertools`
-- **getweather** → `import getweather` *(librería personalizada o externa no estándar)*
+- `import pandas as pd` → **Manipulación y análisis de datos estructurados**
+- `import numpy as np` → **Operaciones matemáticas y manejo eficiente de arrays**
+- `import matplotlib.pyplot as plt` → **Visualización de datos en gráficos estáticos**
+- `import seaborn as sns` → **Visualización estadística sobre matplotlib con estilos atractivos**
+- `import statsmodels.api as sm` → **Modelos estadísticos como regresiones, pruebas y estimaciones**
+- `from statsmodels.formula.api import ols` → **Regresión lineal con notación tipo fórmula**
+- `from sklearn.model_selection import train_test_split` → **Separar datos en conjuntos de entrenamiento y prueba**
+- `from sklearn.neighbors import KNeighborsClassifier` → **Modelo K-vecinos más cercanos para clasificación**
+- `from datetime import date, time, datetime, timedelta` → **Manejo de fechas y tiempos**
+- `import math` → **Funciones matemáticas básicas como seno, coseno, raíz cuadrada**
+- `import os` / `from os import path` → **Interacción con el sistema operativo y rutas de archivos**
+- `import shutil` / `from shutil import make_archive` → **Manejo de archivos y compresión de carpetas**
+- `from zipfile import ZipFile` → **Lectura y escritura de archivos .zip**
+- `import calendar` → **Calendarios, días de la semana, etc.**
+- `import json` / `import urllib.request` → **Interacción con APIs y manejo de datos en formato JSON**
+- `import collections` → **Estructuras como diccionarios ordenados, contadores y tuplas con nombre**
+- `@dataclass` / `namedtuple` → **Estructuras de datos tipo objeto (POPO)**
+- `import itertools` → **Herramientas para crear iteradores eficientes y combinatorios**
+- `import getweather` → **Librería personalizada o externa para obtener datos del clima**
 
 ---
 
@@ -40,134 +46,136 @@ pip install pandas matplotlib seaborn numpy statsmodels scikit-learn dataclasses
 ### 📘 Entrada / Salida y estructuras básicas
 
 ```python
-print("Hello World")  # salida simple
-mylist = [0, 1, "two", 3.2, False]
-mydict = {"one": 1, "two": 2}
-del mylist
-del mydict
+print("Hello World")  # salida simple en consola
+mylist = [0, 1, "two", 3.2, False]  # lista con tipos mixtos
+mydict = {"one": 1, "two": 2}  # diccionario clave:valor
+del mylist  # elimina variable
+del mydict  # elimina diccionario
 ```
 
 ### 📂 Archivos
 
 ```python
-file = open("file.txt", "w+")  # escribir
-file = open("file.txt", "a+")  # agregar
-file = open("file.txt", "r")   # leer
-file.readlines()
-file.close()
+file = open("file.txt", "w+")  # escribir (sobrescribe si existe)
+file = open("file.txt", "a+")  # agregar contenido al final
+file = open("file.txt", "r")   # leer archivo
+file.readlines()  # devuelve una lista con líneas del archivo
+file.close()  # cierra el archivo para liberar recursos
 ```
 
 ### 📐 Tipos de datos y operaciones comunes
 
 ```python
-len(data)
-type(data)
-sorted(data)
-data.sort()
-data.append("x")
-data.remove("x")
-data.insert(0, "x")
-data.extend(["a", "b"])
+len(data)  # número de elementos
+type(data)  # tipo del objeto
+sorted(data)  # devuelve una nueva lista ordenada
+data.sort()  # ordena en sitio (modifica el original)
+data.append("x")  # agrega un elemento
+data.remove("x")  # elimina un elemento específico
+data.insert(0, "x")  # inserta elemento en índice 0
+data.extend(["a", "b"])  # agrega múltiples elementos
 ```
 
 ### 🔍 Pandas: limpieza y exploración de datos
 
 ```python
-pd.read_csv("data.csv")
-data.head()
-data.tail()
-data.info()
-data.shape
-data.columns
-data.dtypes
-data.index
-data.isna().sum()
-data.dropna()
-data.duplicated().sum()
-data["col"].value_counts(normalize=True)
-data["col"].dtype
+pd.read_csv("data.csv")  # lee archivo CSV
+data.head()  # primeras 5 filas
+data.tail()  # últimas 5 filas
+data.info()  # resumen general del DataFrame
+data.shape  # tupla (filas, columnas)
+data.columns  # nombres de columnas
+data.dtypes  # tipos de datos por columna
+data.index  # índice del DataFrame
+data.isna().sum()  # cantidad de NA por columna
+data.dropna()  # elimina filas con NA
+data.duplicated().sum()  # filas duplicadas
+data["col"].value_counts(normalize=True)  # proporción de cada valor
+data["col"].dtype  # tipo de dato de la columna
 ```
 
 ### 🔎 Pandas: filtrado y agrupación
 
 ```python
-data["Year"] == 2025
-data.loc[data["Year"] == 2025, :]
-data.groupby("Year").count()
-data.sort_values("Count", ascending=False)
-data.query("col > 10")
+data["Year"] == 2025  # expresión booleana
+data.loc[data["Year"] == 2025, :]  # filtra filas por año
+data.groupby("Year").count()  # agrupación por año
+data.sort_values("Count", ascending=False)  # ordena por columna
+data.query("col > 10")  # filtra usando expresiones tipo SQL
 ```
 
 ### 🧪 Estadística básica
 
 ```python
-np.mean(data["value"])
-np.min(data)
-np.max(data)
-np.nanmin(data)
-np.nanmax(data)
-np.isnan(data)
-np.percentile(data, 2.5)
-np.percentile(data, 97.5)
+np.mean(data["value"])  # media
+np.min(data)  # mínimo
+np.max(data)  # máximo
+np.nanmin(data)  # mínimo ignorando NaN
+np.nanmax(data)  # máximo ignorando NaN
+np.isnan(data)  # identifica valores NaN
+np.percentile(data, 2.5)  # percentil 2.5
+np.percentile(data, 97.5)  # percentil 97.5
 ```
 
 ### 📊 Visualización
 
 ```python
-data.plot.barh(x="Year", y="Count")
-sns.barplot(x="col1", y="col2", data=data, ci=False)
-sns.countplot(x="col", data=data)
-sns.histplot(data=data, x="col", hue="group")
-sns.pairplot(data)
-plt.hist(data["col"])
-plt.scatter(x=data["x"], y=data["y"], s=5)
-plt.xlabel("x-axis")
-plt.ylabel("y-axis")
-plt.legend(["name1", "name2"])
-plt.xlim(0, 100)
-plt.axhline(0)
-plt.show()
+data.plot.barh(x="Year", y="Count")  # gráfico de barras horizontal
+sns.barplot(x="col1", y="col2", data=data, ci=False)  # barra con error estándar
+sns.countplot(x="col", data=data)  # cuenta ocurrencias por categoría
+sns.histplot(data=data, x="col", hue="group")  # histograma agrupado
+sns.pairplot(data)  # matriz de gráficos entre pares
+plt.hist(data["col"])  # histograma básico
+plt.scatter(x=data["x"], y=data["y"], s=5)  # dispersión
+plt.xlabel("x-axis")  # etiqueta eje x
+plt.ylabel("y-axis")  # etiqueta eje y
+plt.legend(["name1", "name2"])  # leyenda
+plt.xlim(0, 100)  # límites eje x
+plt.axhline(0)  # línea horizontal en y=0
+plt.show()  # muestra el gráfico
+pp.imshow() # muestra una imagen
+pp.show() # muestra imagen
 ```
 
 ### 📈 Modelado
 
 ```python
-X_train, X_test, y_train, y_test = train_test_split(X, y)
-knn = KNeighborsClassifier(n_neighbors=3)
-knn.fit(X_train, y_train)
-knn.predict(X_test)
-knn.score(X_test, y_test)
+X_train, X_test, y_train, y_test = train_test_split(X, y)  # divide los datos
+knn = KNeighborsClassifier(n_neighbors=3)  # instancia modelo KNN
+knn.fit(X_train, y_train)  # entrena modelo
+knn.predict(X_test)  # predice con modelo
+knn.score(X_test, y_test)  # exactitud
 
-model = ols(formula="value1 ~ value2", data=data).fit()
-model.summary()
-sm.qqplot(model.resid, line='s')
+model = ols(formula="value1 ~ value2", data=data).fit()  # regresión lineal
+model.summary()  # tabla resumen del modelo
+sm.qqplot(model.resid, line='s')  # gráfico QQ para residuos
 ```
 
 ### 🧭 Fechas y tiempos
 
 ```python
-datetime.now()
-date.today()
-datetime.now().strftime("%Y-%m-%d")
-datetime.now() + timedelta(days=10)
-datetime.now() - timedelta(weeks=1)
+datetime.now()  # fecha y hora actual
+date.today()  # solo fecha actual
+datetime.now().strftime("%Y-%m-%d")  # formateo personalizado
+datetime.now() + timedelta(days=10)  # suma de días
+datetime.now() - timedelta(weeks=1)  # resta de semanas
 ```
 
 ### 🌀 Control de flujo
 
 ```python
-for x in range(10):
+for x in range(10):  # bucle for
     print(x)
 
-while x < 5:
+while x < 5:  # bucle while
     print(x)
     x += 1
 
 days = ["Mon", "Tue", "Wed"]
-for i, d in enumerate(days):
+for i, d in enumerate(days):  # enumerar con índice
     print(i, d)
 
-if x > 0:
+if x > 0:  # condicionales
     print("Positive")
 elif x == 0:
     print("Zero")
@@ -179,40 +187,37 @@ else:
 
 ## 🌐 Webpages y recursos en línea
 
-- [Documentación datetime Python](https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior)
-- [Documentación JSON Python](https://docs.python.org/es/3/library/json.html)
-- [Kaggle](https://www.kaggle.com/)
-- [USGS Earthquake GeoJSON feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
-- [HTML Viewer](https://html.onlineviewer.net/)
+- https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior
+- https://docs.python.org/es/3/library/json.html
+- https://www.kaggle.com/
+- https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+- https://html.onlineviewer.net/
 
 ---
 
-## 📚 Referencias Bibliográficas
+## 📚 Glosario
 
-- McKinney, W. (2018). *Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython*.
-- VanderPlas, J. (2016). *Python Data Science Handbook*.
-- Géron, A. (2019). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow*.
-- Hunter, J.D. (2007). *Matplotlib: A 2D Graphics Environment*. Computing in Science & Engineering.
-- Pedregosa, F., et al. (2011). *Scikit-learn: Machine Learning in Python*. Journal of Machine Learning Research.
-- Official Python Documentation: https://docs.python.org
-- Seaborn Documentation: https://seaborn.pydata.org/
-- Statsmodels Documentation: https://www.statsmodels.org/
+| **Término / Fórmula**            | **Definición**                                                                 |
+|----------------------------------|--------------------------------------------------------------------------------|
+| `Media:` \( \mu = \frac{1}{n} \sum x_i \)     | Promedio aritmético de un conjunto de datos.                               |
+| `Varianza:` \( \sigma^2 = \frac{1}{n} \sum (x_i - \mu)^2 \) | Mide la dispersión de los datos.                    |
+| `Desviación estándar:` \( \sigma = \sqrt{\sigma^2} \)      | Raíz cuadrada de la varianza.                          |
+| `Error estándar:` \( SE = \frac{\sigma}{\sqrt{n}} \)       | Precisión de la media muestral.                         |
+| `Z-score:` \( z = \frac{x - \mu}{\sigma} \)   | Número de desviaciones estándar que un dato se aleja de la media.          |
+| `IC 95%:` \( \bar{x} \pm 1.96 \cdot SE \)      | Intervalo de confianza para la media con 95% de seguridad.                 |
+| `Regresión lineal:` \( y = \beta_0 + \beta_1 x + \epsilon \) | Relación lineal entre variable independiente y dependiente.              |
+| `Correlación:` \( r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \sum(y_i - \bar{y})^2}} \) | Asociación entre dos variables. |
+| `linear regression:`              | \( Y = \beta_0 + \beta_1 X + \epsilon \) → modelo de relación lineal     |
+| `R² (R-squared):`                 | Proporción de varianza explicada por el modelo                                |
+| `central limit theorem:`          | La media muestral se distribuye normal si n es suficientemente grande         |
+| `type I error (α):`               | Rechazar la hipótesis nula cuando es verdadera (falso positivo)               |
+| `type II error (β):`              | No rechazar la hipótesis nula cuando es falsa (falso negativo)                |
+| `p-value:`                        | Probabilidad de obtener un resultado igual o más extremo, dado H₀ verdadera   |
+| `one-tailed test:`                | Prueba estadística con hipótesis direccional (mayor o menor)                  |
+| `two-tailed test:`                | Prueba estadística donde interesa desviación en ambas direcciones             |
+| `hypothesis:`                     | Suposición que puede ser probada con datos                                    |
 
 
-## 📝 Glosario de Términos y Fórmulas
-
-| **Término**                            | **Definición**                                                                                              |
-|----------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| Media (μ)                              | μ = (1/n) ∑ᵢ xᵢ  # promedio de todos los valores.                                                             |
-| Varianza (σ²)                          | σ² = (1/n) ∑ᵢ (xᵢ - μ)²  # medida de dispersión de los valores respecto a la media.                          |
-| Desviación estándar (σ)                | σ = √[σ²]  # raíz cuadrada de la varianza.                                                                  |
-| Z-score                                | z = (x - μ) / σ  # cuántas desviaciones estándar se aleja el valor x de la media.                           |
-| Percentil                              | Valor por debajo del cual cae un p% de las observaciones.                                                   |
-| Intervalo de confianza (95%)           | IC = x̄ ± 1.96 * (σ / √n)  # rango donde se espera que esté la media poblacional con 95% de confianza.      |
-| Regresión lineal (OLS)                 | ŷ = β₀ + β₁ x  # modelo de regresión donde ŷ es el valor predicho.                                         |
-| Error estándar de β₁                   | SE(β₁) = σ / √(∑ (xᵢ - x̄)²)  # precisión de la estimación de la pendiente.                                  |
-| Coeficiente de correlación (r)         | r = Cov(X,Y) / (σ_X σ_Y)  # fuerza y dirección de la relación lineal entre X y Y.                           |
-| Coeficiente de determinación (R²)      | R² = 1 - SSE/SST  # proporción de varianza de Y explicada por el modelo.                                    |
-| train_test_split                       | Función de scikit-learn para separar datos en conjuntos de entrenamiento y prueba.                          |
-| KNeighborsClassifier                   | Algoritmo de clasificación que asigna la clase según la mayoría de los k vecinos más cercanos.               |
-
+**Autor:**  
+Luis Fernández  
+Jupyter & Python Notes — 2025  
